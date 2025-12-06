@@ -15,93 +15,164 @@
       align-items: center;
       min-height: 100vh;
     }
+
     .app {
       width: 100%;
       max-width: 420px;
-      padding: 16px;
+      padding: 20px 16px 24px;
       box-sizing: border-box;
       text-align: center;
     }
+
     h1 {
-      font-size: 22px;
+      font-size: 24px;
       margin: 4px 0 6px;
+      letter-spacing: 0.06em;
     }
+
     .subtitle {
       font-size: 13px;
-      color: #ddd;
+      color: #dcdff5;
       line-height: 1.4;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
+
     .card-area {
       width: 100%;
       max-width: 260px;
-      margin: 0 auto 10px;
+      margin: 0 auto 12px;
       aspect-ratio: 3 / 5;
-      border-radius: 18px;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
-      background: #111;
+      background: radial-gradient(circle at top, #262f55, #050614);
+      position: relative;
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(255, 255, 255, 0.04);
       display: flex;
       align-items: center;
       justify-content: center;
     }
+
+    .card-area::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: 22px;
+      background: radial-gradient(circle at top, rgba(248, 226, 138, 0.5), transparent 60%);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
     .card-area img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.15s ease-out;
     }
+
+    .card-area img:active {
+      transform: scale(0.97);
+    }
+
     button {
-      padding: 10px 22px;
+      padding: 10px 24px;
       border-radius: 999px;
       border: none;
       font-size: 15px;
       font-weight: 600;
       cursor: pointer;
-      background: #f9e28a;
-      color: #333;
+      background: linear-gradient(135deg, #f9e28a, #f5c76d);
+      color: #3c310c;
       margin-bottom: 6px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+      transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, filter 0.1s;
     }
+
+    button:active {
+      transform: translateY(1px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      filter: brightness(0.98);
+    }
+
     button:disabled {
       opacity: 0.45;
       cursor: default;
+      box-shadow: none;
     }
+
     #hint {
       font-size: 12px;
-      color: #ccc;
-      margin-bottom: 10px;
+      color: #b9bedf;
+      margin-bottom: 12px;
     }
+
     .result {
       margin-top: 10px;
       text-align: left;
-      background: rgba(10, 13, 35, 0.9);
-      padding: 12px;
-      border-radius: 14px;
+      background: rgba(10, 13, 35, 0.92);
+      padding: 14px 14px 12px;
+      border-radius: 16px;
       font-size: 14px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.04);
     }
+
     .result h2 {
-      font-size: 16px;
+      font-size: 17px;
       margin: 0 0 4px;
     }
+
     .result .keyword {
       font-size: 12px;
       color: #f9e28a;
       margin-bottom: 6px;
+      letter-spacing: 0.04em;
     }
+
     .insta-area {
-      margin-top: 10px;
+      margin-top: 12px;
       font-size: 13px;
       text-align: center;
     }
-    .insta-link {
-      display: inline-block;
-      margin-top: 4px;
-      font-size: 14px;
-      text-decoration: none;
-      color: #f9e28a;
-      border-bottom: 1px solid #f9e28a;
+
+    .insta-text {
+      margin-bottom: 6px;
+      color: #dcdff5;
+      font-size: 12px;
     }
+
+    /* ▼ インスタ用ボタン（aタグだけどボタンっぽく） */
+    .insta-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #0b0c1a;
+      background: linear-gradient(135deg, #ffe3a7, #ffb8c9);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
+      border: none;
+      cursor: pointer;
+    }
+
+    .insta-link span.icon {
+      font-size: 14px;
+    }
+
+    .insta-link:active {
+      transform: translateY(1px);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+    }
+
     .hidden {
       display: none;
     }
@@ -128,23 +199,29 @@
       <p id="card-text"></p>
 
       <div class="insta-area">
-        このタロットを描いたイラストレーター<br>
+        <div class="insta-text">このタロットを描いたイラストレーター</div>
+        <!-- ここをボタンっぽいリンクに変更 -->
         <a
           id="insta-link"
           class="insta-link"
-          href="https://www.instagram.com/yuzukosho34/"
+          href="#"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Instagramで他のイラストを見る
+          <span class="icon">✦</span>
+          <span>Instagramでイラストを見る</span>
         </a>
       </div>
     </div>
   </div>
 
   <script>
+    // Instagram ボタン用（参考コードを反映）
+    const instagramUrl = "https://www.instagram.com/yuzupon_to_pokoto/";
+    const instaLink = document.getElementById("insta-link");
+    instaLink.href = instagramUrl;
+
     // ★ ここに16枚のカード情報を書く
-    // 画像ファイル名に合わせて書き換えてね
     const cards = [
       {
         id: "0_TheFool",
