@@ -223,48 +223,160 @@
 
     // ★ ここに16枚のカード情報を書く
     const cards = [
-      {
-        id: "0_TheFool",
-        title: "愚者",
-        keyword: "はじまり・自由・冒険",
-        image: "./cards/0_TheFool.png",
-        text: "決めすぎないで、心がときめく方向に一歩踏み出してみて。失敗しても大丈夫、そこからまた学べます。"
-      },
-      {
-        id: "1_TheMagician",
-        title: "魔術師",
-        keyword: "チャンス・集中・創造",
-        image: "./cards/1_TheMagician.png",
-        text: "今のあなたは、持っているものを組み合わせて新しいものを生み出せるとき。ピンときたことに集中してみて。"
-      },
-      {
-        id: "2_TheHighPriestess",
-        title: "女教皇",
-        keyword: "直感・静けさ・観察",
-        image: "./cards/2_TheHighPriestess.png",
-        text: "慌てて答えを出さなくて大丈夫。静かな時間をとって、自分の直感の声を聞いてみて。"
-      },
-      {
-        id: "3_TheEmpress",
-        title: "女帝",
-        keyword: "豊かさ・やさしさ・育てる",
-        image: "./cards/3_TheEmpress.png",
-        text: "自分にも人にもやさしくすると、思った以上の豊かさが返ってきそう。好きなものに愛情を注いでみて。"
-      },
-      {
-        id: "4_TheEmperor",
-        title: "皇帝",
-        keyword: "決断・責任・リーダーシップ",
-        image: "./cards/4_TheEmperor.png",
-        text: "今日は「自分で決める」ことがテーマ。小さなことでも、自分の意思で選ぶことを意識してみて。"
-      },
-      {
-        id: "5_TheHierophant",
-        title: "法王",
-        keyword: "学び・伝える・つながり",
-        image: "./cards/5_TheHierophant.png",
-        text: "誰かから学ぶ・誰かに教える、どちらも良い日。安心できる人との対話がヒントをくれそうです。"
-      },
+     {
+    id: "0_TheFool",
+    title: "愚者",
+    keyword: "はじまり・自由・冒険",
+    image: "./cards/0_TheFool.png",
+    text: "決めすぎないで、心がときめく方向に一歩。風みたいに軽やかに進めば、思いがけない景色があなたを待っています。"
+  },
+  {
+    id: "1_TheMagician",
+    title: "魔術師",
+    keyword: "創造・可能性・スタート",
+    image: "./cards/1_TheMagician.png",
+    text: "いま手元にある小さな道具が、魔法の材料。『できる』を信じて組み合わせた瞬間、世界が動き出します。"
+  },
+  {
+    id: "2_TheHighPriestess",
+    title: "女教皇",
+    keyword: "直感・静けさ・内なる声",
+    image: "./cards/2_TheHighPriestess.png",
+    text: "答えは外じゃなく、静かな胸の奥に。夜の水面みたいに心を落ち着けると、本当のサインが浮かび上がります。"
+  },
+  {
+    id: "3_TheEmpress",
+    title: "女帝",
+    keyword: "豊かさ・愛情・育む",
+    image: "./cards/3_TheEmpress.png",
+    text: "受け取っていい日。やさしさや美しさを遠慮なく味わって。あなたが満ちるほど、周りもあたたかく照らされます。"
+  },
+  {
+    id: "4_TheEnperor",
+    title: "皇帝",
+    keyword: "基盤・守る・決断",
+    image: "./cards/4_TheEnperor.png",
+    text: "ふわっとした夢を、形にするタイミング。境界線をやさしく引いて、守りたいものを守る。あなたの芯が道しるべです。"
+  },
+  {
+    id: "5_TheHierophant",
+    title: "教皇",
+    keyword: "学び・伝統・導き",
+    image: "./cards/5_TheHierophant.png",
+    text: "一人で抱えなくていいよ。信頼できる教えや先人の知恵に触れるほど、あなたの迷いは静かにほどけていきます。"
+  },
+  {
+    id: "6_TheLovers",
+    title: "恋人",
+    keyword: "選択・調和・心で決める",
+    image: "./cards/6_TheLovers.png",
+    text: "大切なのは、正しさより『好き』。誰かとの関係も、自分の選択も、胸が温かくなる方を選んでください。"
+  },
+  {
+    id: "7_TheChariot",
+    title: "戦車",
+    keyword: "前進・意志・突破",
+    image: "./cards/7_TheChariot.png",
+    text: "進むって決めたあなたは強い。揺れる気持ちを手綱みたいに整えて、行きたい場所へ。勢いは味方になります。"
+  },
+  {
+    id: "8_Strength",
+    title: "力",
+    keyword: "優しさの強さ・忍耐・信頼",
+    image: "./cards/8_Strength.png",
+    text: "押し切る強さじゃなく、抱きしめる強さ。焦らず、怯えも否定せずに寄り添えば、心の獣は静かに落ち着きます。"
+  },
+  {
+    id: "9_TheHermit",
+    title: "隠者",
+    keyword: "内省・探求・ひとりの光",
+    image: "./cards/9_TheHermit.png",
+    text: "少しだけ静かな場所へ。小さなランタンの光が、いちばん大事な真実を照らします。急がなくて大丈夫。"
+  },
+  {
+    id: "10_WheelofFortune",
+    title: "運命の輪",
+    keyword: "転機・流れ・チャンス",
+    image: "./cards/10_WheelofFortune.png",
+    text: "景色がくるっと変わる予感。流れに逆らわず、波に乗る準備を。偶然みたいな出来事が、未来の扉になります。"
+  },
+  {
+    id: "11_Justice",
+    title: "正義",
+    keyword: "バランス・誠実・整える",
+    image: "./cards/11_Justice.png",
+    text: "心と現実の天秤を、そっと水平に。感情を大切にしながらも、事実を見て整えると、あなたらしい答えが出ます。"
+  },
+  {
+    id: "12_TheHangedMan",
+    title: "吊るされた男",
+    keyword: "手放す・視点の転換・待つ",
+    image: "./cards/12_TheHangedMan.png",
+    text: "いまは動かないことが、いちばんの前進かも。視点を逆さにすると、今まで見えなかった優しい道が見つかります。"
+  },
+  {
+    id: "13_Death",
+    title: "死神",
+    keyword: "終わり・変容・新しい始まり",
+    image: "./cards/13_Death.png",
+    text: "終わりは、怖い顔をして来るけれど、本当は再生の合図。もう役目を終えたものを手放して、軽い心で次へ。"
+  },
+  {
+    id: "14_Temperance",
+    title: "節制",
+    keyword: "調和・癒し・ちょうどいい",
+    image: "./cards/14_Temperance.png",
+    text: "混ぜ合わせて、やさしい色にする日。急がず、少しずつ整えれば大丈夫。あなたのペースが、最適解です。"
+  },
+  {
+    id: "15_TheDevil",
+    title: "悪魔",
+    keyword: "執着・誘惑・本音",
+    image: "./cards/15_TheDevil.png",
+    text: "『離れたいのに離れられない』に気づいたら、もう半分解けてる。鎖は意外とゆるいよ。望みを正直に見てみて。"
+  },
+  {
+    id: "16_TheTower",
+    title: "塔",
+    keyword: "崩壊・目覚め・真実",
+    image: "./cards/16_TheTower.png",
+    text: "壊れるのは、偽りの積み木だけ。痛みのあとに、空が広く見える。ほんとうのあなたが戻ってくるサインです。"
+  },
+  {
+    id: "17_TheStar",
+    title: "星",
+    keyword: "希望・導き・やさしい未来",
+    image: "./cards/17_TheStar.png",
+    text: "暗い夜ほど、星はきれい。小さな希望を抱きしめて。あなたの願いは、静かに現実へ向かって育っています。"
+  },
+  {
+    id: "18_TheMoon",
+    title: "月",
+    keyword: "揺らぎ・幻想・不安と直感",
+    image: "./cards/18_TheMoon.png",
+    text: "見えにくい夜は、想像が大きくなる。怖さが出ても責めないで。霧が晴れるまで、足元の光だけを信じて進もう。"
+  },
+  {
+    id: "19_TheSun",
+    title: "太陽",
+    keyword: "喜び・祝福・素直さ",
+    image: "./cards/19_TheSun.png",
+    text: "まっすぐ笑っていい日。うれしいを隠さずに受け取るほど、世界は明るく返してくれます。あなたの輝きは本物。"
+  },
+  {
+    id: "20_Judgement",
+    title: "審判",
+    keyword: "目覚め・再出発・呼び声",
+    image: "./cards/20_Judgement.png",
+    text: "遠くから呼ばれている気がするなら、それが合図。過去の自分もまるごと抱えて、もう一度スタートしていい。"
+  },
+  {
+    id: "21_TheWorld",
+    title: "世界",
+    keyword: "完成・統合・旅の到達点",
+    image: "./cards/21_TheWorld.png",
+    text: "ここまで来たあなたを、世界が祝福しています。終わりは新しい循環の入り口。次の物語へ、軽やかに手を伸ばして。"
+  }
       // ……この要領で 15 まで追加する……
     ];
 
